@@ -1,0 +1,99 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="tertiary"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="anime !== undefined" color="tertiary">{{ anime.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <div *ngIf="anime !== undefined">
+    <ion-card>
+      <ion-img class="bg-img" [src]="anime.images.jpg.large_image_url"></ion-img>
+    </ion-card>
+
+    <div class="info">
+      <ion-card>
+        <h3 *ngIf="anime.title_english">{{anime.title_english}}</h3>
+        <h4 *ngIf="anime.title_japanese">{{anime.title_japanese}}</h4>
+        <h6 *ngIf="anime.episodes !== null"><ion-icon name="tv-outline" color="tertiary"></ion-icon> Episodios: {{anime.episodes}}</h6>
+        <h6 *ngIf="anime.duration"><ion-icon name="time-outline" color="tertiary"></ion-icon> Duração: {{anime.duration}}</h6>
+        <ion-chip class="ion-padding" *ngFor="let genre of anime.genres" [outline]="false">{{genre.name}}</ion-chip>
+      </ion-card>
+      <br>
+      
+      <swiper-container *ngIf="character !== undefined" slides-per-view="3" effect="slide" loop="true" autoplay="true">
+        
+        <swiper-slide *ngFor="let char of character" >
+          
+          <div class="ion-text-center char_cards">
+            <ion-card class="char_card">
+              <img [src]="char.character.images.webp.image_url" alt="chareacter_images">
+            </ion-card>
+
+            <h3 id="char_name">{{char.character.name}}</h3>
+          </div>
+
+        </swiper-slide>
+      </swiper-container>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <h3>Avaliação</h3>
+              <h4><ion-icon name="star-half-outline" color="tertiary"></ion-icon> {{anime.score !== null ? anime.score:"NA"}}</h4>
+            </ion-card>
+          </ion-col>
+          <!--================-->
+          <ion-col>
+            <ion-card>
+              <h3>Rank</h3>
+              <h4><ion-icon name="stats-chart-outline" color="tertiary"></ion-icon> {{anime.rank !== null ? anime.rank : "NA"}}</h4>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-card>
+        <ion-card-header>
+          <h3><ion-icon name="document-text-outline" color="tertiary"></ion-icon> Sinopse</h3>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <div *ngIf="!showFullText; else fullText">
+            <h5>{{ anime.synopsis | slice:0:200 }}...</h5>
+            <ion-button color="tertiary" fill="clear" size="small" (click)="showFullText = true"><ion-icon name="add-circle-outline" size="large"></ion-icon></ion-button>
+          </div>
+          <ng-template #fullText>
+            <h5>{{ anime.synopsis }}</h5>
+            <ion-button color="tertiary" fill="clear" size="small" (click)="showFullText = false"><ion-icon name="remove-circle-outline" size="large"> </ion-icon></ion-button>
+          </ng-template>
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-card>
+        <ion-card-content>
+          <p *ngIf="anime.season !== null"><ion-icon name="time-outline" color="tertiary"></ion-icon> 
+            Temporada: {{anime.season.charAt(0).toUpperCase() +
+            anime.season.slice(1)}} {{anime.year}}
+          </p>
+          <p>Fonte: {{anime.source}}</p>
+          <p> 
+            Estudio:
+            <span *ngFor="let studio of anime.studios">{{studio.name}} </span>
+          </p>
+          <p><ion-icon name="alert-circle-outline" color="tertiary"></ion-icon> Classificação: {{anime.rating}}</p>
+          <p><ion-icon name="calendar-outline" color="tertiary"></ion-icon> No ar: {{anime.aired.string}}</p>
+          <p>
+            Distribuido por:
+            <span *ngFor="let lic of anime.licensors">{{lic.name}} </span>
+          </p>
+        </ion-card-content>
+      </ion-card>
+    
+    </div>
+
+  </div>
+</ion-content>

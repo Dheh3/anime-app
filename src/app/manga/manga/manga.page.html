@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="tertiary"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="manga !== undefined" color="tertiary">{{ manga.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div *ngIf="manga !== undefined">
+    <ion-card>
+      <ion-img class="bg-img" [src]="manga.images.jpg.large_image_url"></ion-img>
+    </ion-card>
+
+    <div class="info">
+      <ion-card>
+        <h3 *ngIf="manga.title_english">{{manga.title_english}}</h3>
+        <h4 *ngIf="manga.title_japanese">{{manga.title_japanese}}</h4>
+        <ion-chip *ngFor="let genre of manga.genres" [outline]="false" class="ion-padding">{{genre.name}}</ion-chip>
+      </ion-card>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <h3>Avaliação</h3>
+              <h4><ion-icon name="star-half-outline" color="tertiary"></ion-icon> {{manga.score !== null ? manga.score:"NA"}}</h4>
+            </ion-card>
+          </ion-col>
+          <!--================-->
+          <ion-col>
+            <ion-card>
+              <h3>Rank</h3>
+              <h4><ion-icon name="stats-chart-outline" color="tertiary"></ion-icon> {{manga.rank !== null ? manga.rank : "NA"}}</h4>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-card >
+        <h3><ion-icon name="document-text-outline" color="tertiary"></ion-icon> Sinopse</h3>
+        <ion-card-content>
+          <div *ngIf="!showFullText; else fullText">
+            <h5>{{ manga.synopsis | slice:0:200 }}...</h5>
+            <ion-button color="tertiary" fill="clear" size="small" (click)="showFullText = true"><ion-icon name="add-circle-outline" size="large"></ion-icon></ion-button>
+          </div>
+          <ng-template #fullText>
+            <h5>{{ manga.synopsis }}</h5>
+            <ion-button color="tertiary" fill="clear" size="small" (click)="showFullText = false"><ion-icon name="remove-circle-outline" size="large"></ion-icon></ion-button>
+          </ng-template>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          <div *ngIf="manga.authors !== undefined">
+            <p><ion-icon name="person-outline" color="tertiary"></ion-icon> Autor</p>
+            <ul>
+              <li *ngFor="let author of manga.authors">{{author.name}}</li>
+            </ul>
+          </div>
+          <div *ngIf="manga.demographics !== undefined">
+            <p><ion-icon name="alert-circle-outline" color="tertiary"></ion-icon> Classificação</p>
+            <ul>
+              <li *ngFor="let dem of manga.demographics">{{dem.name}}</li>
+            </ul>
+          </div>
+          <div *ngIf="manga.serializations !== undefined">
+            <p><ion-icon name="globe-outline" color="tertiary"></ion-icon> Serialização</p>
+            <ul>
+              <li *ngFor="let ser of manga.serializations">{{ser.name}}</li>
+            </ul>
+          </div>
+          <div *ngIf="manga.published !== undefined">
+            <p><ion-icon name="calendar-outline" color="tertiary"></ion-icon> Publicação: {{manga.published.string}}</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+
+  </div>
+  
+</ion-content>

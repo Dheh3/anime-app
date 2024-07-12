@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h4{
+    font-size: x-large;
+    font-weight: 600;
+    padding: 0 0 5px 1em;
+}
+
+swiper-contaienr {
+    width: 100%;
+    height: 100%;
+}
+swiper-slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        height: 30vh;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        
+    }
+    ion-card{
+        border-radius: 2em;
+        margin: 0 2px 0 2px;
+    }
+}
+h1, h2,h3,h4,h5,p{
+    color: var(--ion-color-light);
+
+}

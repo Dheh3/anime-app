@@ -1,0 +1,53 @@
+ion-header {
+    box-shadow: none;
+
+    ion-toolbar {
+        border-radius: 25px;
+        background-color: transparent;
+
+        ion-title {
+            font-weight: 800;
+            font-size: x-large;
+        }
+    }
+}
+
+ion-content {
+    --background: var(--ion-color-primary);
+    --background: linear-gradient(to top left, var(--ion-color-dark), var(--ion-color-primary), var(--ion-color-tertiary));
+
+    ion-card {
+        border-radius: 2.5em;
+        background-color: rgba(66, 71, 105, 0.3);
+        backdrop-filter: blur(3px);
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li {
+            padding: 0.5em 0 0 1em;
+            color: var(--ion-color-tertiary-tint);
+            font-weight: 600;
+        }
+
+        .sinopse {
+            h5 {
+                color: white;
+            }
+        }
+    }
+
+    .info {
+        ion-chip {
+            border-radius: 25px;
+            font-weight: 600;
+            --background: var(--ion-color-tertiary);
+            color: var(--ion-color-primary);
+
+        }
+
+    }
+}

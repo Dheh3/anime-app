@@ -1,0 +1,117 @@
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.custom {
+    color: var(--ion-color-tertiary);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    justify-content: center;
+}
+
+.custom-syn {
+    color: var(--ion-color-tertiary);
+    font-size: large;
+}
+
+ion-header {
+    box-shadow: none;
+
+    ion-toolbar {
+        border-radius: 25px;
+        background-color: transparent;
+
+        ion-grid {
+            box-shadow: none !important;
+            ion-title {
+                padding-top: 0.5em;
+            
+                h1 {
+                    color: #aaa;
+                    font-size: 36px;
+                    font-weight: 400;
+                    text-align: center;
+            
+                    strong {
+                        color: #313131;
+                    }
+                }
+            }            
+
+            .tt {
+                font-size: 24px;
+                font-variant: small-caps;
+                color: var(--ion-color-tertiary);
+
+                strong {
+                    color: var(--ion-color-tertiary);
+                    font-weight: 800;
+                }
+            }
+
+            ion-searchbar {
+                --border-radius: 25px;
+                --color: var(--ion-color-primary);
+                --placeholder-font-weight: 800;
+                letter-spacing: 2px;
+            }
+
+            .custom-search {
+                color: var(--ion-color-primary);
+                font-weight: 800;
+            }
+        }
+    }
+}
+
+ion-content {
+    --background: var(--ion-color-primary);
+    --background: linear-gradient(to bottom right, var(--ion-color-dark), var(--ion-color-primary), var(--ion-color-secondary), var(--ion-color-tertiary-shade));
+
+    .search-card {
+        border-radius: 2.5em;
+        font-weight: 800;
+
+        background-color: rgba(66, 71, 105, 0.3);
+
+        ion-img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 35%;
+            height: 30vh;
+        }
+
+        ion-list {
+            background-color: transparent;
+        }
+
+        ion-chip {
+            --background: var(--ion-color-tertiary);
+            color: var(--ion-color-primary);
+        }
+
+        ion-card-title {
+            color: var(--ion-color-primary-contrast);
+        }
+
+        ion-card-content {
+            color: var(--ion-color-primary-contrast);
+            --background: var(--ion-color-tertiary) !important;
+        }
+
+        ion-card-title {
+            font-weight: 800 !important;
+        }
+
+        box-shadow: 0 0 30px var(--ion-color-dark-shade);
+
+    }
+   
+
+}

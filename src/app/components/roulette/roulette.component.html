@@ -1,0 +1,56 @@
+<br>
+<h4><ion-icon name="star-outline" color="tertiary"></ion-icon> Animes populares</h4>
+<swiper-container *ngIf="favAnime !== undefined" slides-per-view="3" effect="slide" loop="true" autoplay="true"
+  class="ion-padding">
+  <swiper-slide *ngFor="let anime of favAnime.data">
+    <div class="ion-text-center">
+      <ion-card routerLink="/anime/{{anime.mal_id}}">
+        <img [src]="anime.images.webp.image_url">
+      </ion-card>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
+<br>
+
+<h4><ion-icon name="videocam-outline"></ion-icon> Filmes</h4>
+<swiper-container *ngIf="gMovie !== undefined" slides-per-view="3" effect="slide" loop="true" autoplay="true"
+  class="ion-padding">
+  <swiper-slide *ngFor="let anime of gMovie.data">
+    <div class="ion-text-center">
+      <ion-card routerLink="/anime/{{anime.mal_id}}">
+        <img [src]="anime.images.webp.image_url">
+      </ion-card>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
+<br>
+
+<h4><ion-icon name="trail-sign-outline"></ion-icon> Proxima temporada</h4>
+<swiper-container *ngIf="topAnime !== undefined" slides-per-view="3" effect="slide" loop="true" autoplay="true"
+  class="ion-padding">
+  <swiper-slide *ngFor="let anime of topAnime.data">
+    <div class="ion-text-center">
+      <ion-card routerLink="/anime/{{anime.mal_id}}">
+        <img [src]="anime.images.webp.image_url">
+      </ion-card>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
+<br>
+
+<h4><ion-icon name="book-outline"></ion-icon> Mangas em lançamento</h4>
+<swiper-container *ngIf="airingAnime !== undefined" slides-per-view="3" effect="slide" loop="true" autoplay="true"
+  class="ion-padding">
+  <swiper-slide *ngFor="let manga of airingAnime.data">
+    <div class="ion-text-center">
+      <ion-card routerLink="/manga/{{manga.mal_id}}">
+        <img [src]="manga.images.webp.image_url">
+      </ion-card>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
+<br>

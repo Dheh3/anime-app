@@ -1,0 +1,30 @@
+ion-content {
+    --background: var(--ion-color-secondary) url(../../../assets/bkg-t1.svg) no-repeat center center/cover;
+
+    ion-card {
+        box-shadow: none;
+        border-radius: 1.5em;
+        transform: translateY(50%);
+        background-color: rgba(45, 50, 80, 0.3);
+        backdrop-filter: blur(3px);
+
+        .tt {
+            font-size: 24px;
+            font-variant: small-caps;
+
+            strong {
+                color: var(--ion-color-tertiary-tint);
+                font-weight: 800;
+            }
+        }
+
+        ion-button {
+            --border-radius: 0.7em;
+        }
+
+        .pad {
+            border-radius: 25px;
+            margin: 0 10px 0 10px;
+        }
+    }
+}

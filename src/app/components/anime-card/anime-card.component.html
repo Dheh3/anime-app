@@ -1,0 +1,10 @@
+<swiper-container *ngIf="airingAnime !== undefined" slides-per-view="1" effect="slide" loop="true" autoplay="true" >
+  <swiper-slide *ngFor="let anime of airingAnime.data" >
+    <div class="ion-text-center tt">
+      <img [src]="anime.images.webp.large_image_url">
+      <div class="acima">
+        <h2>{{anime.title === null ? "Sinopse não disponivel":anime.title.substring(0,20)+"..."}}</h2>
+      </div>
+    </div>
+  </swiper-slide>
+</swiper-container>

@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+
+    <form>
+      <br>
+      <ion-title class="tt ion-text-center" color="tertiary"><strong>NARU</strong>app</ion-title>
+      <br>
+      <ion-item class="pad">
+        <ion-input label="E-mail" labelPlacement="floating" placeholder="Digite seu email" type="text"
+          [(ngModel)]="email"></ion-input>
+        <ion-icon name="mail-outline" color="primary"></ion-icon>
+      </ion-item>
+      <hr>
+
+      <ion-item class="pad">
+        <ion-input label="Senha" labelPlacement="floating" placeholder="Digite sua senha" type="password"
+          [(ngModel)]="senha"></ion-input>
+        <ion-icon name="key-outline" color="primary"></ion-icon>
+      </ion-item><br>
+
+
+      <div class="ion-text-right ion-margin-horizontal">
+        <ion-text><a href="#" (click)="recoverPassword()">Esqueci a senha</a></ion-text>
+      </div>
+
+      <div class="ion-margin submit">
+        <ion-button expand="block" size="large" color="tertiary" type="submit" (click)="loginUsuario()">
+          <ion-text><strong>Login</strong></ion-text>
+        </ion-button>
+      </div>
+
+
+    </form>
+
+    <div class="ion-text-right ion-margin-horizontal">
+      <ion-button color="light" size="small" color="secondary" routerLink="/register">
+        <ion-text>cadastrar</ion-text>
+      </ion-button>
+    </div>
+    <hr>
+
+  </ion-card>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header id="main-content">
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title class="tt"><strong>Naru</strong>app</ion-title>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="font-weight: 600;">
+          <ion-searchbar class="custom-search" color="tertiary" [(ngModel)]="searchQuery" [debounce]="1000" (ionInput)="search($event)" placeholder="Pesquisar"></ion-searchbar>  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col size="11">
+        <ion-card *ngFor="let result of results" class="search-card">
+          <div routerLink="/anime/{{result.mal_id}}">
+            <ion-img [src]="result.images.webp.large_image_url" alt="imagem" preload />
+            <ion-card-header>
+              <h2 class="custom">{{ result.title }}</h2>
+  
+              <ion-list>
+                <ion-chip *ngFor="let genre of result.genres" [outline]="false" >
+                  {{ genre.name }}
+                </ion-chip>
+              </ion-list>
+  
+            </ion-card-header>
+            
+            <ion-card-content>
+              <h6 class="custom-syn">
+                {{result.synopsis === null ? "Sinopse não disponivel":result.synopsis.substring(0,150)+"..."}}
+              </h6>
+            </ion-card-content>
+            <br>
+          </div>
+
+        </ion-card>
+
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore()" #infiniteScroll>
+    <ion-infinite-scroll-content loadingText="Carregando mais dados...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
