@@ -1,6 +1,7 @@
 # Naru-App
 
 Projeto em Ionic Angualar para pesquisar animes usando Jikan API (v4)
+Project using Ionic Angular to search anime using Jikan API (v4)
 
 ## login page
 
