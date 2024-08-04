@@ -6,11 +6,11 @@ Projeto em Ionic Angualar para pesquisar animes usando Jikan API (v4)
 
 <img src="./screenshot/login.jpg" style="height: 450px; margin: 0 10px;"/>
 
-# Home page
+## Home page
 
 <img src="./screenshot/home.jpg" style="height: 450px; margin: 0 10px;"/>
 
-# Details page
+## Details page
 
 <img src="./screenshot/detail.jpg" style="height: 450px; margin: 0 10px;"/>
 <img src="./screenshot/details.jpg" style="height: 450px; margin: 0 10px;"/>
