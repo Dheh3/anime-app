@@ -1,7 +1,8 @@
 # Naru-App
 
-Projeto em Ionic Angualar para pesquisar animes usando Jikan API (v4) <br>
-Project using Ionic Angular to search anime using Jikan API (v4)
+Projeto em Ionic Angualar para pesquisar animes usando Jikan API (v4). usando Firebase e Swiper.
+<br>
+Project using Ionic Angular to search anime using Jikan API (v4). Using Firebase and Swiper.
 
 ## login page
 
